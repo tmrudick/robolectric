@@ -1,0 +1,14 @@
+package org.robolectric.shadows;
+
+#if ($api >= 21)
+import android.net.NetworkFactory;
+
+import org.robolectric.annotation.Implements;
+import org.robolectric.shadows.ShadowHandler;
+
+@Implements(value = NetworkFactory.class, isInAndroidSdk = false)
+public class ShadowNetworkFactory extends ShadowHandler {
+  public void register() { }
+  public void unregister() { }
+}
+#end

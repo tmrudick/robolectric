@@ -1232,10 +1232,17 @@ public class RobolectricActivityManager implements IActivityManager {
   }
 #end
 
+#if ($api >= 21)
+  @Override
+  public boolean removeTask(int taskId) throws RemoteException {
+    return false;
+  }
+#else
   @Override
   public boolean removeTask(int taskId, int flags) throws RemoteException {
     return false;
   }
+#end
 
   @Override
   public void registerProcessObserver(IProcessObserver observer) throws RemoteException {
